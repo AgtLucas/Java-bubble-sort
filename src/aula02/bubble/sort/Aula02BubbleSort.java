@@ -15,9 +15,10 @@ public class Aula02BubbleSort {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int op, n, i, aux;
+        int op, n, i, troca;
         int x[] = new int[10];
         Funcionario[] funcionario = new Funcionario[5];
+        Funcionario aux = new Funcionario();
         
         do {
             System.out.println("Menu");
@@ -39,17 +40,24 @@ public class Aula02BubbleSort {
                     }
                 }
                 if (op == 2) {
-                    for(n = 1; n <= 5; n++) {
+                    
+                    n = 1;
+                    troca = 1;
+                    
+                    while(n <= 5 && troca == 1) {
+                        troca = 0;
                         for(i = 0; i <= 3; i++) {
-                            if(x[i] > x[i + 1]) {
-                                aux = x[i];
-                                x[i] = x[i + 1];
-                                x[i + 1] = aux;
+                            if(funcionario[i].salario > funcionario[i + i].salario) {
+                                troca = 1;
+                                aux = funcionario[i];
+                                funcionario[i] = funcionario[i + 1];
+                                funcionario[i + 1] = aux;
                             }
                         }
-                    }
+                        n = n + 1;
+                    }  
                     
-                    for(i = 0; i <= 4; i++) {
+                    for(i = 0; i <= 9; i++) {
                         System.out.println(funcionario[i].salario);
                     }
                 }
